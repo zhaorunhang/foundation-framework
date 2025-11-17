@@ -1,0 +1,5 @@
+dependencies {
+    compileOnly("org.springframework.boot:spring-boot-starter-data-jpa")
+    compileOnly("cn.hutool:hutool-core")
+    compileOnly("com.alibaba.fastjson2:fastjson2")
+}

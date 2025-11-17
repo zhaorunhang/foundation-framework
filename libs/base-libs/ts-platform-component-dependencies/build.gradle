@@ -1,0 +1,29 @@
+ext {
+    PROJECT_LOMBOK_VERSION = "1.18.42"
+    HUTOOL_VERSION = "5.8.40"
+    FASTJSON2_VERSION = "2.0.59"
+    MYSQL_CONNECTOR_VERSION = "8.4.0"
+    MAPSTRUCT_VERSION = "1.6.3"
+    OPENAPI3_VERSION = "4.5.0"
+
+    DEPENDENCIES = [
+            "org.projectlombok:lombok"                                        : PROJECT_LOMBOK_VERSION,
+            "org.springframework.boot:spring-boot-starter-web"                : SPRINGBOOT_VERSION,
+            "org.springframework.boot:spring-boot-starter-test"               : SPRINGBOOT_VERSION,
+            "org.springframework.boot:spring-boot-starter-validation"         : SPRINGBOOT_VERSION,
+            "org.springframework.boot:spring-boot-starter-data-jpa"           : SPRINGBOOT_VERSION,
+            "cn.hutool:hutool-core"                                           : HUTOOL_VERSION,
+            "com.alibaba.fastjson2:fastjson2"                                 : FASTJSON2_VERSION,
+            "com.mysql:mysql-connector-j"                                     : MYSQL_CONNECTOR_VERSION,
+            "org.mapstruct:mapstruct"                                         : MAPSTRUCT_VERSION,
+            "org.mapstruct:mapstruct-processor"                               : MAPSTRUCT_VERSION,
+            "com.github.xiaoymin:knife4j-openapi3-jakarta-spring-boot-starter": OPENAPI3_VERSION
+    ]
+}
+dependencies {
+    constraints {
+        DEPENDENCIES.each { key, value ->
+            api("$key:$value")
+        }
+    }
+}

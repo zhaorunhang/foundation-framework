@@ -1,0 +1,7 @@
+ext {
+    baseframework_version = "1.0.0-SNAPSHOT"
+    basebusiness_version = "1.0.0-SNAPSHOT"
+}
+dependencies {
+    api platform("com.zrh:ts-platform-component-dependencies:$applicationContext.projectVersion")
+}

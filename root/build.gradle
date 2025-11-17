@@ -1,0 +1,82 @@
+//file:noinspection GroovyAssignabilityCheck
+//file:noinspection GrUnresolvedAccess
+buildscript {
+    apply from: "variable.gradle"
+
+    repositories {
+        maven { url "https://maven.aliyun.com/repository/public/" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring.springBootVersion"
+    }
+}
+
+allprojects {
+    group = applicationContext.groupId
+    version = applicationContext.projectVersion
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven { url "https://maven.aliyun.com/repository/public/" }
+
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = applicationContext.encoding
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+        options.compilerArgs += ["-Amapstruct.unmappedTargetPolicy=IGNORE"]
+    }
+
+    tasks.withType(Javadoc).configureEach {
+        options.encoding(applicationContext.encoding)
+        options.addStringOption("Xdoclint:none", "-quiet")
+    }
+
+}
+
+def ignoreProjects = ["base", "service"]
+configure(subprojects.findAll { !ignoreProjects.contains(it.name) }) { subproject ->
+    apply plugin: "java"
+    apply plugin: "java-library"
+    // 编译版本
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+    // 编码格式
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = applicationContext.encoding
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = applicationContext.encoding
+    }
+
+    if (!subproject.name.contains("service")) {
+        apply plugin: "maven-publish"
+
+        publishing {
+            publications {
+                mavenJava(MavenPublication) {
+                    pluginManager.withPlugin("java-platform") {
+                        from components.javaPlatform
+                    }
+                    pluginManager.withPlugin("java") {
+                        from components.java
+                    }
+                    group applicationContext.groupId
+                    artifactId project.name
+                    version applicationContext.projectVersion
+                }
+            }
+            repositories {
+                mavenLocal()
+            }
+        }
+    }
+
+    pluginManager.withPlugin("java") {
+        dependencies {
+            api platform("com.zrh:ts-platform-all-dependencies:$applicationContext.projectVersion")
+            annotationProcessor platform("com.zrh:ts-platform-all-dependencies:$applicationContext.projectVersion")
+        }
+    }
+}

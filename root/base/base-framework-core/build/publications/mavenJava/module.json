@@ -1,0 +1,86 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.zrh",
+    "module": "base-framework-core",
+    "version": "1.0.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.14.3"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "com.zrh",
+          "module": "ts-platform-all-dependencies",
+          "version": {
+            "requires": "1.0.0-SNAPSHOT"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          },
+          "endorseStrictVersions": true
+        }
+      ],
+      "files": [
+        {
+          "name": "base-framework-core-1.0.0-SNAPSHOT.jar",
+          "url": "base-framework-core-1.0.0-SNAPSHOT.jar",
+          "size": 7346,
+          "sha512": "1b1aa53888c53c399155b8abf109c96e43a29f544f2cd2cfc330ca01e3d1f165ab0d1cbad53edaa622e3474142879873e55fd7e0cc9f83bc3d87ad9381a150b3",
+          "sha256": "f55fcc55fafc410ee0866492ef3756c2a271a123889cce163a82b3256c5ac8c1",
+          "sha1": "690a8c4efecc557fb5c133d45edd0daa9dbea96a",
+          "md5": "239145920347c4555fe8ee7207644204"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.zrh",
+          "module": "ts-platform-all-dependencies",
+          "version": {
+            "requires": "1.0.0-SNAPSHOT"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          },
+          "endorseStrictVersions": true
+        }
+      ],
+      "files": [
+        {
+          "name": "base-framework-core-1.0.0-SNAPSHOT.jar",
+          "url": "base-framework-core-1.0.0-SNAPSHOT.jar",
+          "size": 7346,
+          "sha512": "1b1aa53888c53c399155b8abf109c96e43a29f544f2cd2cfc330ca01e3d1f165ab0d1cbad53edaa622e3474142879873e55fd7e0cc9f83bc3d87ad9381a150b3",
+          "sha256": "f55fcc55fafc410ee0866492ef3756c2a271a123889cce163a82b3256c5ac8c1",
+          "sha1": "690a8c4efecc557fb5c133d45edd0daa9dbea96a",
+          "md5": "239145920347c4555fe8ee7207644204"
+        }
+      ]
+    }
+  ]
+}

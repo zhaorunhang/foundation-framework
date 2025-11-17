@@ -1,0 +1,8 @@
+//file:noinspection GrUnresolvedAccess
+subprojects {
+    apply plugin: "java-platform"
+
+    javaPlatform {
+        allowDependencies()
+    }
+}

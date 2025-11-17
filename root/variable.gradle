@@ -1,0 +1,14 @@
+ext {
+    applicationContext = [
+        path: rootProject.projectDir.absolutePath,
+        groupId: GROUP_ID,
+        encoding: ENCODING,
+        projectVersion: PROJECT_VERSION_NAME,
+    ]
+    spring = [
+        springBootVersion: SPRINGBOOT_VERSION,
+        springCloudVersion: SPRINGCLOUD_VERSION,
+        springCloudAlibabaVersion: SPRINGCLOUD_ALIBABA_VERSION,
+        dependencyManagementVersion: DEPENDENCY_MANAGEMENT_VERSION
+    ]
+}

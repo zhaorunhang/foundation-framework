@@ -1,0 +1,5 @@
+rootProject.name = 'libs'
+
+include("base-libs")
+include("base-libs:ts-platform-all-dependencies")
+include("base-libs:ts-platform-component-dependencies")
